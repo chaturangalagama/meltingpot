@@ -1,9 +1,30 @@
+
 h1
   Github Repositories
 
 .git-repo-areas
 
   .git-repo( ng-repeat="repo in globalState.user.repos()" ng-controller="ListItemCtrl" )
+    - var btnType = '{{repo.name}}'
     .repo-name
-      span( ng-bind="repo.full_name" )
-      a.link-out( ng-href="{{repo.html_url}}" target="_blank" )
+      a( ng-href="{{repo.html_url}}" ng-bind="repo.name" target="_blank" )
+    br
+    .repo-descript
+      span( ng-bind="repo.description" )
+      br
+      br
+    .repo-other
+      .inline  
+        style.
+           .btn-#{btnType}{
+            background-color: {{colorsjson[repo.language]}};
+          }
+        span(ng-class="[{repoicon: repo.language != null}]" class='btn-'+ btnType)
+        span(ng-class="{space: repo.language != null}" ng-bind="repo.language")
+        img(ng-if="repo.forks_count==0" src="assets/images/fork.svg" alt="fork" )
+        span(ng-class="{space: repo.forks_count == 0}" ng-if="repo.forks_count==0" ng-bind="repo.forks_count")
+      span Updated on 
+      span( ng-bind="repo.updated_at | date:'dd MMM yyyy'")
+      br
+      br
+      br

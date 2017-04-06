@@ -3,8 +3,45 @@
 }
 
 .git-repo {
+  border-bottom:1px solid #dbdbdb;
+  margin-bottom:2rem;
+  color:#565555;
   .repo-name {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
+    font-weight:bold;
+    a{
+      text-decoration:none;
+      color: #0980e8;
+    }
+  }
+  .repo-descript {
+    font-size: 1rem;
+  }
+  .repo-other{
+    font-size:0.8rem;
+    .space{
+      padding-right:1rem;
+    }
+  }
+  .inline{
+    display:inline;
+    .repoicon {
+      position: relative;
+      top: 1px;
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      margin-right:0.3rem;
+    }
+    .repocolor {
+      background-color: red;
+    }
+    img{
+      width:0.6rem;
+      height:0.8rem;
+      margin-right:0.3rem;
+    }
   }
   .link-out {
     position: relative;
